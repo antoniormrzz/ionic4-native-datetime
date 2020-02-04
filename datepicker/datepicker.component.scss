@@ -1,0 +1,46 @@
+input,
+input:focus {
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: right;
+  height: 35px;
+}
+
+
+
+ion-icon {
+  margin-right: 7px !important;
+  margin-left: 7px !important;
+}
+
+.corners{
+    border-radius: 5px;
+}
+
+
+
+.force-center-vrt {
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    :only-child {
+        align-self: center;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+
+.force-right {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: flex-end;
+
+    :only-child {
+        justify-self: self-end;
+        margin-left: auto;
+        margin-right: 0;
+    }
+}

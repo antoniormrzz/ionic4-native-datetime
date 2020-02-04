@@ -1,0 +1,15 @@
+<div class="oto-display-inline-block">
+  <div (click)="onClick()" style="display: flex !important">
+    <div [ngStyle]="{'background': color}" class="force-right corners">
+      <div style="display: contents !important" class="wrapper corners">
+        <div>
+          <input [ngStyle]="{'color': textColor,'background': color}" class="corners" [value]="inputValue" readonly
+            type="text">
+        </div>
+        <div *ngIf="hasIcon" class="force-center-vrt">
+          <ion-icon [color]="iconColor" [name]="iconName"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
