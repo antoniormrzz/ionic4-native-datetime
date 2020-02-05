@@ -49,7 +49,7 @@ this should be an easy drop-in replacement for ion-datetime, you can set default
 | mode | 'date', 'time', 'datetime'     |    'date' |
 | hasIcon      |  boolean      |   true |
 | iconName | ionicons icon name    |    'calendar' |
-| iconColor     | ionic color, 'primary', 'secondary', etc (doesn't support css or hex colors)   |   $12 |
+| iconColor     | ionic color, 'primary', 'secondary', etc (doesn't support css or hex colors)   |   'secondary' |
 | color | background color, css color name or hex  |    'white' |
 | textColor     | displayed date text color, css color name or hex    |   'black' |
 | readonly | -   |    false |
