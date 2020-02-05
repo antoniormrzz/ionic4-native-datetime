@@ -7,6 +7,7 @@ import { format } from 'date-fns';
   styleUrls: ['./datepicker.component.scss']
 })
 export class DatepickerComponent implements OnInit {
+  private _dateModel;
   @Input() displayFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxx";
   @Input() mode = 'date';
   @Input() hasIcon = true;
@@ -18,20 +19,17 @@ export class DatepickerComponent implements OnInit {
   @Input() min;
   @Input() doneText;
   @Input() cancelText;
-  @Input() dateModel;
   @Input() readonly = false;
+  @Input() set dateModel(val: any) {
+    this._dateModel = val;
+    this.inputValue = format(new Date(this._dateModel), this.displayFormat);
+  }
   @Output() dateModelChange = new EventEmitter<string>();
   inputValue = '';
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {}
-
-  ngAfterContentInit(): void {
-    if (this.dateModel) {
-      this.inputValue = format(new Date(this.dateModel), this.displayFormat);
-    }
-  }
 
   onClick = () => {
     if (!this.readonly) {
@@ -40,13 +38,12 @@ export class DatepickerComponent implements OnInit {
         success: newDate => {
           this.dateModelChange.emit(newDate.toISOString());
           this.dateModel = newDate.toISOString();
-          this.inputValue = format(new Date(this.dateModel), this.displayFormat);
           this.cdr.detectChanges();
         }
       };
 
-      if (this.dateModel) {
-        options.date = new Date(this.dateModel);
+      if (this._dateModel) {
+        options.date = new Date(this._dateModel);
       } else {
         options.date = new Date();
       }
